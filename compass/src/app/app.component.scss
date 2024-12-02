@@ -1,11 +1,14 @@
 .container { 
     display: flex;
     flex-direction: column;
+    background-color: #F2FFFE;
+ 
 }
 
 .heading {
     display: flex;
     flex-direction: row;
+    margin-top: 45px;
 }
 
 .comps {
@@ -23,5 +26,5 @@
 
 .weekly-goals {
     margin-left: 120px;
-    margin-top: 70px;
+    margin-top: 60px;
 }
