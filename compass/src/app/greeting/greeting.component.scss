@@ -1,35 +1,12 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Oxygen', sans-serif;
-    background-color: #FFFFFF;
-}
-
-.greeting-component {
-    position: absolute;
-    width: 933.75px; 
-    height: 100.26px; 
-    top: 118px;    
-    left: 23px;    
-    gap: 0px;      
-    opacity: 0px; 
-    background: #E1FBF9;
-    border-radius: 12.5px;
+.message {
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding-left: 34.85px; 
-}
-
-.greeting-text {
-    font-family: 'Oxygen', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 50.51px;
-    color: #2DBDB1;
-}
-
-.bolded-name {
-    font-weight: 700;
+    background-color: #e0f9f7;
+    color: #38b2ac;
+    font-family: Oxygen;
+    font-size: 35px;
+    padding: 20px;
+    border-radius: 12.5px;
+    width: 850px;
+    height: 55px;
 }
