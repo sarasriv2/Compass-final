@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { DatetimeComponent } from './datetime/datetime.component';
 import { WeeklyGoalsComponent } from './weekly-goals/weekly-goals.component';
 import { WeeklyGoalsModalComponent } from './weekly-goals-modal/weekly-goals-modal.component';
-
+import { HashtagNotesComponent } from './hashtag-notes/hashtag-notes.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatetimeComponent, RouterOutlet, WeeklyGoalsComponent, WeeklyGoalsModalComponent],
+  imports: [DatetimeComponent, RouterOutlet, WeeklyGoalsComponent, WeeklyGoalsModalComponent, HashtagNotesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -16,3 +16,4 @@ import { WeeklyGoalsModalComponent } from './weekly-goals-modal/weekly-goals-mod
 export class AppComponent {
   title = 'sakkara-midterm';
 }
+
