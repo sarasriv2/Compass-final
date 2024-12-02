@@ -5,11 +5,10 @@ import { WeeklyGoalsComponent } from './weekly-goals/weekly-goals.component';
 import { WeeklyGoalsModalComponent } from './weekly-goals-modal/weekly-goals-modal.component';
 import { HashtagNotesComponent } from './hashtag-notes/hashtag-notes.component';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatetimeComponent, RouterOutlet, WeeklyGoalsComponent, HashtagNotesComponent, WeeklyGoalsModalComponent],
+  imports: [DatetimeComponent, RouterOutlet, WeeklyGoalsComponent, WeeklyGoalsModalComponent, HashtagNotesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -17,5 +16,4 @@ import { HashtagNotesComponent } from './hashtag-notes/hashtag-notes.component';
 export class AppComponent {
   title = 'sakkara-midterm';
 }
-
 
