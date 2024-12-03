@@ -1,0 +1,105 @@
+.container{
+    display: flex; 
+    flex-direction: column; 
+    height: 70px; 
+    width: 1440px; 
+    font-family: "Oxygen", sans-serif; 
+    bottom: 10px; 
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem; 
+    background-color: #FFFF ;
+    border-bottom: 1px solid #FFFF; 
+
+    .back-button img, 
+    .logout img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    }
+    .logout{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+  
+        span {
+          color: #2DBDB1;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+      }
+    }
+
+.main-content{
+    display: flex; 
+    flex: 1; 
+    padding: 2rem; 
+    background-color: #9cf1f440;
+
+    .notes-section{
+        flex:2; 
+        margin-right: 2rem; 
+
+        h1{
+            width: 973px;
+            height: 58px; 
+            top: 148px; 
+            left: 68px; 
+            font-family: "Oxygen", sans-serif;
+            font-weight: 400; 
+            font-size: 45px; 
+            line-height: 60.01px;
+            color: #5A5A5A; 
+        }
+        h2{
+            width: 615px; 
+            height: 45px; 
+            top: 212px; 
+            left: 67.5px; 
+            font-family: "Oxygen", sans-serif;
+            font-weight: 300;
+            font-size: 35px; 
+            line-height: 47px;
+            color: #5A5A5A; 
+        }
+        .hashtag{
+            color: #2DBDB1; 
+            font-family: "Oxygen";
+            font-weight: 400; 
+            font-size: 35;
+            line-height: 47px;
+        }
+    }
+    .notes{
+        display: flex; 
+        flex-direction: column; 
+        width: 850px; 
+        height: 581px; 
+        top: 293px; 
+        left: 57px; 
+        border-top: 3.75px;
+        border-right: 3.75px;
+        border-bottom: 1.25px;
+        border-left: 3.75px;
+        background-color: #FFFF; 
+        border-radius: 12.5px;
+        border-width: 3.75px 3.75px 1.25px 3.75px;
+        border-style: solid;
+        border-color: #E1FBF9;
+        
+        
+
+        .note{
+            background: #FFFF;
+            padding: 1rem;
+
+        }
+    }
+}
+
+
+

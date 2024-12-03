@@ -1,0 +1,34 @@
+.container { 
+    display: flex;
+    flex-direction: column;
+    background-color: #F2FFFE;
+ 
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+}
+
+.comps {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+}
+
+.greeting {
+    margin-left: 120px;
+}
+
+.datetime { 
+    margin-left: 120px;
+}
+
+.weekly-goals {
+    margin-left: 120px;
+}
+
+.long-term-goals {
+    margin-left: 450px;
+}
