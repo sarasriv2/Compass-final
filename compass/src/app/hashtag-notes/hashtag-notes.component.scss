@@ -50,7 +50,7 @@
             top: 148px; 
             left: 68px; 
             font-family: "Oxygen", sans-serif;
-            font-weight: 400; 
+            font-weight: 200; 
             font-size: 45px; 
             line-height: 60.01px;
             color: #5A5A5A; 
@@ -90,16 +90,76 @@
         border-width: 3.75px 3.75px 1.25px 3.75px;
         border-style: solid;
         border-color: #E1FBF9;
-        
-        
 
         .note{
             background: #FFFF;
-            padding: 1rem;
+            padding-left: 20px;
+            color: #5A5A5A;
 
         }
+          h3 {
+            font-size: 16px; 
+            font-family: "Oxygen";
+            font-weight: bolder; 
+            padding-top: 20px;
+        }  
+          p {
+            font-size: 16px; 
+            font-family: 'Oxygen'; 
+            font-weight: lighter;
+            padding-top: 0px ;
+          }
+        
+        }
     }
-}
+
+    .goal-sidebar{
+        flex: 1; 
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 130px;
+        margin-left: -40px;
+
+        h3 {
+            font-size: 17px;
+            font-family: 'Oxygen'; 
+            font-weight: 550;
+            color:#5A5A5A; 
+            border-bottom: 1px solid rgba(0,0,0,.15);
+            padding-bottom: 10px;
+            margin-bottom: 5px;  
+
+        }
+        .goals-list{
+            list-style: none;
+            padding-left: 0px; 
+
+            li {
+                display: flex; 
+                align-items: center;
+                gap: 15px; 
+                margin-bottom: 20px; 
+                font-family: 'Oxygen' ;
+                font-size: 15px; 
+                border-bottom: 1px solid rgba(0,0,0,.15);
+                padding-bottom: 10px;
+                margin-bottom: 5px;  
+
+                input [type='checkbox'] {
+                    width: 21.06px;
+                    height: 21.06px;
+                    border-radius: 4.21px;
+                    border: 1.69px 0px 0px 0px;
+                    opacity: 0px;
+                    color:#2DBDB1; 
+                     
+                }
+            }
+        }
+
+
+    }
+
 
 
 
