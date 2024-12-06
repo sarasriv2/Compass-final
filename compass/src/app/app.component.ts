@@ -7,12 +7,13 @@ import { NavbarComponent } from './navbar/navbar.component'
 import { WeeklyGoalsComponent } from './weekly-goals/weekly-goals.component';
 import { WeeklyGoalsModalComponent } from './weekly-goals-modal/weekly-goals-modal.component';
 import { HashtagNotesComponent } from './hashtag-notes/hashtag-notes.component';
+import { QuarterlyGoalsComponent } from './quarterly-goals/quarterly-goals.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatetimeComponent, GreetingComponent, LongTermGoalsComponent, NavbarComponent, RouterOutlet, WeeklyGoalsComponent, WeeklyGoalsModalComponent, HashtagNotesComponent],
+  imports: [DatetimeComponent, GreetingComponent, LongTermGoalsComponent, NavbarComponent, RouterOutlet, WeeklyGoalsComponent, WeeklyGoalsModalComponent, HashtagNotesComponent, QuarterlyGoalsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
