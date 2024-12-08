@@ -1,25 +1,28 @@
-.container {
-    display: flex;
-    justify-content: center;
+.overlay { 
     position: fixed;
-    top: 0;
+    top: 60px;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 100;
+    overflow: hidden;
+    background-color: #A6A6A680;
+    z-index: 500;
 }
 
 .modal-comp { 
+    position: absolute;
+    top: 50px;
+    left: 350px;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    width: 750px;
-    height: 600x;
-    padding: 60px;
-    border: 1px solid black;
+    width: 650px;
+    height: 550px;
+    padding: 50px;
     border-radius: 10px;
     background-color: white;
     font-family: Oxygen;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .heading {
@@ -47,14 +50,14 @@
     align-items: center;
     gap: 25px;
     font-weight: 400px;
-    font-size: 19.1px;
+    font-size: 17px;
     line-height: 24.11px;
 }
 
 .modal-goal-text{
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 400px;
     border-bottom: 1px solid #4B5853;
     color: #4B5853;
 }
@@ -67,7 +70,7 @@
 
 .drop1 .mdc-text-field--filled {
     background-color: #fff !important;
-    width: 210px;
+    width: 200px;
     height: 40px;
     padding-left: 3px;
     border-bottom: 1px;
@@ -82,7 +85,7 @@
 
 .drop2 .mdc-text-field--filled {
     background-color: #fff !important;
-    width: 210px;
+    width: 200px;
     height: 40px;
     padding-left: 3px;
     border-bottom: 1px;
@@ -97,7 +100,7 @@
 
 .drop-new .mdc-text-field--filled {
     background-color: #fff !important;
-    width: 210px;
+    width: 200px;
     height: 40px;
     padding-left: 3px;
     border-bottom: 1px;
@@ -112,7 +115,7 @@
 
 .drop-def .mdc-text-field--filled {
     background-color: #fff !important;
-    width: 210px;
+    width: 200px;
     height: 40px;
     padding-left: 3px;
     border-bottom: 1px solid ;
@@ -137,8 +140,8 @@
     font-size: 22.5px;
     line-height: 28.41px;
     position: sticky;
-    margin-left: 600px;
-    margin-top: 125px;
+    margin-left: 525px;
+    margin-top: 50px;
     color: white;
 }
 
@@ -168,7 +171,7 @@
 
 #tag {
     font-weight: 300;
-    font-size: 19.1px;
+    font-size: 19px;
     line-height: 24.11px;
 }
 
