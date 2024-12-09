@@ -1,21 +1,51 @@
-<div class="long-term-comp">
+<div class="long-term-goals-comp" id="comp">
+  <div class="heading">
     <div class="title-row">
-      <p id="title">Long-term Goals</p>
-      <img src="edit.png" id="pencil" alt="edit" (click)="openModal()">
-    </div>
-  
-    <div class="goal" *ngFor="let goal of goals">
-      <p class="goal-time"><strong>{{ goal.time }}</strong></p>
-      <p class="goal-text">{{ goal.text }}</p>
-      <img src="line.png" id="line">
-    </div>
-  
-    <div class="modal" *ngIf="isOpen">
-      <div class="modal-content">
-        <h1>Long-term Goals</h1>
-        <h2><strong>Plan Your future</strong></h2>
-        </div>
-        <button (click)="closeModal()">Save</button>
+      <p id="title">Long Term Goals</p>
+      <div (click)="openModal()">
+        <img src="edit.png" id="pencil" alt="edit">
       </div>
+    </div>
   </div>
-  
+
+  <div class="subheading">
+    <p id="subheading"><strong>1 year</strong></p>
+  </div>
+  <div *ngFor="let goal of longtermGoals1Year">
+    <div class="goal">
+      <div class="goal-main">
+        <div class="goal-text" [ngClass]="{'crossed-out': goal.isComplete}">
+          <p class="text">{{ goal.text }}</p>
+        </div>
+      </div>
+      <img src="line.png" id="line" alt="line">
+    </div>
+  </div>
+
+  <div class="subheading">
+    <p id="subheading"><strong>5 year</strong></p>
+  </div>
+  <div *ngFor="let goal of longtermGoals5Year">
+    <div class="goal">
+      <div class="goal-main">
+        <div class="goal-text" [ngClass]="{'crossed-out': goal.isComplete}">
+          <p class="text">{{ goal.text }}</p>
+        </div>
+      </div>
+      <img src="line.png" id="line" alt="line">
+    </div>
+  </div>
+
+  <div (click)="openModal()">
+    <p id="add-text">+ Add a long term goal</p>
+  </div>
+
+  <app-long-term-goals-modal 
+  *ngIf="isOpen" 
+  [oneYearGoals]="longtermGoals1Year" 
+  [fiveYearGoals]="longtermGoals5Year" 
+  (close)="closeModal()"
+  (updateGoals)="updateGoals($event)">
+</app-long-term-goals-modal>
+
+</div>

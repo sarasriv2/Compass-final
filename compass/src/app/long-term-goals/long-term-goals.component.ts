@@ -1,33 +1,52 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LongTermGoalsModalComponent } from '../long-term-goals-modal/long-term-goals-modal.component';
 
 interface Goal {
-  time: string;
   text: string;
+  isComplete: boolean;
 }
 
 @Component({
   selector: 'app-long-term-goals',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, MatCheckboxModule, LongTermGoalsModalComponent],
   templateUrl: './long-term-goals.component.html',
-  styleUrl: './long-term-goals.component.scss'
+  styleUrls: ['./long-term-goals.component.scss']
 })
-
 export class LongTermGoalsComponent {
-  isOpen: boolean = false; 
+  isOpen: boolean = false;
 
-  goals: Goal[] = [
-    { time: '1 year', text: 'Secure SWE or UX Engineering Internship' },
-    { time: '5 year', text: 'Working as a SWE in a team I love with some UX/Design oriented work' }
+  longtermGoals1Year: Goal[] = [
+    { text: "Secure SWE Internship", isComplete: false },
   ];
 
-  openModal(): void {
+  longtermGoals5Year: Goal[] = [
+    { text: "Working as a SWE in a team I love with some UX/Design oriented work", isComplete: false },
+  ];
+
+  openModal() {
     this.isOpen = true;
+    console.log("Modal opened");
   }
 
-  closeModal(): void {
+  closeModal() {
     this.isOpen = false;
+    console.log("Modal closed");
   }
 
+  updateGoals(updatedGoals: { oneYear: Goal[]; fiveYear: Goal[] }) {
+  this.longtermGoals1Year = updatedGoals.oneYear.map(goal => ({
+    text: goal.text.replace('1 year ', ''),
+    isComplete: goal.isComplete,
+  }));
+
+  this.longtermGoals5Year = updatedGoals.fiveYear.map(goal => ({
+    text: goal.text.replace('5 year ', ''),
+    isComplete: goal.isComplete,
+  }));
+}
+  
 }
