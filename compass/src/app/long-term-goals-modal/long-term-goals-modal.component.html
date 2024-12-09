@@ -1,49 +1,41 @@
-<div class="goals-container">
-    <div class="header">
-      <div class="title-section">
-        <h1>Long Term Goals</h1>
-        <img src="close-icon.svg" alt="Close" />
-        <span class="dates">9/24 - 9/30</span>
-      </div>
-    </div>
-  
-    <div class="goals-list">
-      @for (goal of goals; track goal.id) {
-        <div class="goal-item">
-          <div class="drag-handle">
-            <img src="dots.svg" alt="Dots" />
-          </div>
-          <input
-            type="text"
-            class="goal-input"
-            [(ngModel)]="goal.text"
-          />
-          <div class="tag-wrapper">
-            <span class="tag" [ngClass]="'tag-' + goal.tagColor">{{ goal.tag }}</span>
-            <button [ngClass]="'dropdown-btn-' + goal.tagColor">▼</button>
-          </div>
+
+<div class="overlay">
+    <div class="modal-comp">
+
+        <div class="heading">
+            <div class="title-row">
+                <p id="title">Long Term Goals</p>
+
+                <div (click)="closeModal()">
+                    <img src="x.png" id="esc" alt="close">
+                </div>
+            </div>
+
+            <p id="message"><strong>Plan your future</strong></p>
         </div>
-      }
-  
-      <div class="goal-item">
-        <div class="drag-handle">
-          <img src="dots.svg" alt="Dots" />
+
+        <div *ngFor="let goal of modalGoals">
+            <div class="modal-goal">
+
+                <div class="modal-goal-text">
+                    <p class="text">{{ goal.text }}</p>
+                </div>
+            </div>
         </div>
-        <input
-          type="text"
-          class="goal-input new-goal"
-          placeholder="Enter your goal..."
-          [(ngModel)]="newGoalText"
-      
-        />
-        <div class="tag-wrapper">
-          <span class="tag tag-gray">quarterly goal...</span>
-          <button class="dropdown-btn-gray">▼</button>
+
+        <div class="modal-goal">
+             <div class="modal-goal-text">
+                <p *ngIf="!isEditing" class="text" id="def-color" (click)="onClick()">{{ defText }}</p>
+                <p *ngIf="isEditing" contenteditable="true" class="text"
+                (input)="updateNewGoalText($event)" (keydown)="onEnter($event)"> 
+                </p>
+            </div>
+            
         </div>
-      </div>
+
+        <button class="save-button" (click)="save()">Save</button>
+        
     </div>
-  
-    <div class="footer">
-      <button class="save-btn">Save</button>
     </div>
-  </div>
+
+
