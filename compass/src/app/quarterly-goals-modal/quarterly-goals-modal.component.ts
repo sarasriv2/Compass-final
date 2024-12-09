@@ -40,12 +40,13 @@ export class QuarterlyGoalsModalComponent {
   }
 
   getTagStyle(tag: string): string {
-    if (tag === "#apply-internships") {
-      return "#2DBDB1";
-    } else if (tag === "#class-algorithms") {
-      return "#FFB987";
-    } else {
-      return "purple";
+    switch (tag) {
+      case "#apply-internships":
+        return "#2DBDB1";
+      case "#class-algorithms":
+        return "#FFB987";
+      default:
+        return "purple";
     }
   }
 
@@ -78,11 +79,11 @@ export class QuarterlyGoalsModalComponent {
 
   save() {
     for (let goal of this.modalGoals) {
-      if (!(this.impGoals.some(impGoal => impGoal.text == goal.text))) {
+      if (!(this.impGoals.some(impGoal => impGoal.text === goal.text))) {
         this.impGoals.push(goal);
       }
     }
-    
+
     this.isEditing = false;
     this.closeModal();
   }
