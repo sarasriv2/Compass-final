@@ -35,6 +35,7 @@
   
     <app-quarterly-goals-modal 
       *ngIf="isOpen" 
+      [impGoals]="quarterlyGoals"
       (close)="closeModal()">
     </app-quarterly-goals-modal>
   </div>
