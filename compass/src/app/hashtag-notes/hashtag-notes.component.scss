@@ -5,6 +5,14 @@
     width: 1440px; 
     font-family: "Oxygen", sans-serif; 
     bottom: 10px; 
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #F2FFFE;
+    z-index: 500;
 }
 
 .header{
