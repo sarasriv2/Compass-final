@@ -24,23 +24,23 @@ export class HashtagNotesComponent {
   @Output() close = new EventEmitter<void>();
   isModalOpen = false;
 
-  // Opens the modal
+  
   openModal() {
     this.isModalOpen = true;
   }
 
-  // Closes the modal
+  
   closeModal() {
     this.isModalOpen = false;
   }
 
-  // Adds a goal from the modal to weeklyGoals and reflects it in notes
+  
   addGoalFromModal(newGoal: { text: string; tag: string; isComplete: boolean }) {
     this.weeklyGoals.push(newGoal);
     this.notes.push({ title: newGoal.text, content: 'Enter notes for this weekly goal...' });
   }
 
-  // Allows inline editing of note content
+  
   editNoteContent(note: { title: string; content: string }, newContent: string) {
     note.content = newContent;
   }

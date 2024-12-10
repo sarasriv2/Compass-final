@@ -63,4 +63,8 @@ export class WeeklyGoalsComponent {
   checkGoal(goal: Goal): void {
     goal.isComplete = !goal.isComplete;
   }
+
+  addGoalFromModal(newGoal: Goal) {
+    this.weeklyGoals.push(newGoal);
+  }
 }
