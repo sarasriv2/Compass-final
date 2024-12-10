@@ -1,47 +1,49 @@
-<div class="overlay">
-  <div class="container" *ngIf="tag">
-    <div class="header">
-      <div class="back-button" (click)="closeModal()">
-        <img src="logo.jpg" alt="Back" />
-      </div>
-      <div class="logout">
-        <span>Logout</span>
-        <img src="logout.jpg" alt="Logout" />
-      </div>
+<div class="container">
+  <div class="header">
+    <div class="back-button" (click)="closeModal()">
+      <img src="logo.jpg" alt="Back" />
     </div>
-  
-    <div class="main-content">
-      <div class="notes-section">
-        <h1>Notes and resources</h1>
-        <h2>For <span class="hashtag">{{ tag }}</span></h2>
-        <div class="notes">
-          <div class="note" *ngFor="let note of notes">
-            <h3>{{ note.title }}</h3>
-            <p>{{ note.content }}</p>
-          </div>
+    <div class="logout">
+      <span>Logout</span>
+      <img src="logout.jpg" alt="Logout" />
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="notes-section">
+      <h1>Notes and resources</h1>
+      <h2>For <span class="hashtag">{{ tag }}</span></h2>
+
+      <div class="notes">
+        <div class="note" *ngFor="let note of notes">
+          <h3>{{ note.title }}</h3>
+          <textarea [(ngModel)]="note.content" (change)="editNoteContent(note, note.content)">
+          </textarea>
         </div>
       </div>
+    </div>
+
+    
+    <div class="goal-sidebar">
+      <button (click)="openModal()">Add a Weekly Goal</button>
+
       <div class="goal-sidebar">
-        <h3>Apply to All Internships</h3> <!-- Dynamically show tag as goal title -->
-  
-        <ul class="goals-list">
+        <button (click)="openModal()">Add a Weekly Goal</button>
+        <ul>
           <li *ngFor="let goal of weeklyGoals">
-            <input type="checkbox" 
-                   [id]="goal.text" 
-                   [(ngModel)]="goal.isComplete" 
-                   (change)="checkGoal(goal)" />
-            <label [for]="goal.text" [ngClass]="{'crossed-out': goal.isComplete}">
-              {{ goal.text }}
-            </label>
-          </li>
-          <li class="add-goal">
-            <button (click)="addGoal()">+ Add a weekly goal</button>
+            <input type="checkbox" [(ngModel)]="goal.isComplete" />
+            {{ goal.text }}
           </li>
         </ul>
       </div>
-    </div>
-  </div>
+      <app-weekly-goals-modal
+    *ngIf="isModalOpen"
+    [impGoals]="weeklyGoals"
+    (close)="closeModalFromChild()"
+    (saved)="addGoal($event)"
+  ></app-weekly-goals-modal>
 </div>
+
 
 
   

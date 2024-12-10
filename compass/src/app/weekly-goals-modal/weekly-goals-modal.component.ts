@@ -28,6 +28,7 @@ export class WeeklyGoalsModalComponent {
 
   @Input() impGoals: Goal[] = [];
   @Output() close = new EventEmitter<void>();
+  @Output () saved = new EventEmitter<{ text: string; isComplete: boolean }>();
 
   modalGoals: Goal[] = [];
 
@@ -77,6 +78,7 @@ export class WeeklyGoalsModalComponent {
       this.newGoalTag = '';
 
       this.isEditing = false;
+      
     }
   }
 
@@ -100,4 +102,5 @@ export class WeeklyGoalsModalComponent {
   closeModal() {
     this.close.emit();
   }
+
 }
