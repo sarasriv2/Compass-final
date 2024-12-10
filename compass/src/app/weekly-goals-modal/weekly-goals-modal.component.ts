@@ -28,8 +28,7 @@ export class WeeklyGoalsModalComponent {
 
   @Input() impGoals: Goal[] = [];
   @Output() close = new EventEmitter<void>();
-  @Output () saved = new EventEmitter<{ text: string; isComplete: boolean }>();
-
+  @Output () saved = new EventEmitter<Goal>();
   modalGoals: Goal[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -86,6 +85,7 @@ export class WeeklyGoalsModalComponent {
     for (let goal of this.modalGoals) {
       if (!(this.impGoals.some(impGoal => impGoal.text == goal.text))) {
         this.impGoals.push(goal);
+        this.saved.emit(goal); 
 
       }
 

@@ -23,26 +23,24 @@
       </div>
     </div>
 
-    
     <div class="goal-sidebar">
       <button (click)="openModal()">Add a Weekly Goal</button>
-
-      <div class="goal-sidebar">
-        <button (click)="openModal()">Add a Weekly Goal</button>
-        <ul>
-          <li *ngFor="let goal of weeklyGoals">
-            <input type="checkbox" [(ngModel)]="goal.isComplete" />
-            {{ goal.text }}
-          </li>
-        </ul>
-      </div>
-      <app-weekly-goals-modal
-    *ngIf="isModalOpen"
-    [impGoals]="weeklyGoals"
-    (close)="closeModalFromChild()"
-    (saved)="addGoal($event)"
-  ></app-weekly-goals-modal>
+      <ul>
+        <li *ngFor="let goal of weeklyGoals">
+          <input type="checkbox" [(ngModel)]="goal.isComplete" />
+          {{ goal.text }}
+        </li>
+      </ul>
+    </div>
+    <app-weekly-goals-modal
+      *ngIf="isModalOpen"
+      [impGoals]="weeklyGoals"
+      (close)="closeModal()"
+      (saved)="addGoalFromModal($event)"
+    ></app-weekly-goals-modal>
+  </div>
 </div>
+
 
 
 

@@ -10,25 +10,18 @@ import { WeeklyGoalsModalComponent } from "../weekly-goals-modal/weekly-goals-mo
   styleUrl: './hashtag-notes.component.scss'
 })
 export class HashtagNotesComponent {
-closeModalFromChild() {
-throw new Error('Method not implemented.');
-}
-addGoal($event: { text: string; isComplete: boolean; }) {
-throw new Error('Method not implemented.');
-}
   @Input() tag: string | null = null;
   @Input() notes: { title: string; content: string }[] = [
     { title: 'Apply to all internships', content: 'Enter general Notes for this quarter goal...' },
     { title: 'Finish Google Cover letter', content: 'Enter notes for this weekly goal...' },
     { title: 'Apply to Microsoft', content: 'Enter notes for this weekly goal...' },
   ];
-  @Input() weeklyGoals: { text: string; isComplete: boolean }[] = [
-    { text: 'Finish Google Cover Letter', isComplete: false },
-    { text: 'Apply to Microsoft', isComplete: false },
+  @Input() weeklyGoals: { text: string; tag: string; isComplete: boolean }[] = [
+    { text: 'Finish Google Cover Letter', tag: '#apply-internships', isComplete: false },
+    { text: 'Apply to Microsoft', tag: '#apply-internships', isComplete: false },
   ];
 
   @Output() close = new EventEmitter<void>();
-
   isModalOpen = false;
 
   // Opens the modal
