@@ -1,39 +1,63 @@
+<div class="weekly-goals-comp" id="comp">
 
-        <div class="weekly-goals-comp" id="comp">
 
-            <div class="heading">
-                <div class="title-row">
-                    <p id="title">Weekly Goals</p>
-                    <div (click)="openModal()">
-                        <img  src="edit.png" id="pencil" alt="edit">
-                    </div>
-                </div>
-
-                <p id="week">9/24 - 9/30</p>
+    <div class="heading">
+        <div class="title-row">
+            <p id="title">Weekly Goals</p>
+            <div (click)="openModal()">
+                <img src="edit.png" id="pencil" alt="edit">
             </div>
+        </div>
+        <p id="week">9/24 - 9/30</p>
+    </div>
 
-            <div *ngFor="let goal of weeklyGoals">
-                <div class="goal">
+    
+    <div *ngFor="let goal of weeklyGoals">
+        <div class="goal">
 
                     <div class="goal-main">
+                        <label class="check-box">
+                        <input type="checkbox" [checked]="goal.isComplete" (change)="checkGoal(goal)"/>
+                        <span class="check-mark"></span>
+                        </label>
             
                 
-                        <div class="goal-text" [ngClass]="{'crossed-out': goal.isComplete}">
-                            <p class="text">{{ goal.text }}</p>
-                            <p class="tag" [ngStyle]="{'color': getTagStyle(goal.tag)}">{{ goal.tag || "None" }} </p>
-                        </div>
-                    </div>
-                
-                    <img src="line.png" id="line" alt="line">
+                <div class="goal-text" [ngClass]="{'crossed-out': goal.isComplete}">
+                    <p class="text">{{ goal.text }}</p>
+                    <p 
+                        class="tag" 
+                        [ngStyle]="{'color': getTagStyle(goal.tag)}" 
+                        (click)="openNotesModal(goal.tag)">
+                        {{ goal.tag || "None" }}
+                    </p>
                 </div>
             </div>
 
-            <div (click)="openModal()">
-                <p id="add-text">+ Add a weekly goal</p>
-            </div>
-
-            <app-weekly-goals-modal *ngIf="isOpen" [impGoals]="weeklyGoals" (close)="closeModal()"></app-weekly-goals-modal>
+            <img src="line.png" id="line" alt="line">
         </div>
+    </div>
+
+   
+    <div (click)="openModal()">
+        <p id="add-text">+ Add a weekly goal</p>
+    </div>
+
+    
+    <app-weekly-goals-modal 
+        *ngIf="isGoalModalOpen" 
+        [impGoals]="weeklyGoals" 
+        (close)="closeModal()"
+        (saved)="addGoalFromModal($event)">
+    </app-weekly-goals-modal>
+
+
+    <app-hashtag-notes 
+        *ngIf="isNotesModalOpen" 
+        [tag]="selectedTag"
+        (close)="closeNotesModal()">
+    </app-hashtag-notes>
+</div>
+
 
 
 
