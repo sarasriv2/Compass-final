@@ -41,8 +41,6 @@ export class WeeklyGoalsComponent {
   openNotesModal(tag: string): void {
     this.selectedTag = tag;
     this.isNotesModalOpen = true;
-    const url = `/hashtag-notes?tag=${encodeURIComponent(tag)}`; // Pass the tag as a query parameter
-    window.open(url, '_blank'); // Open the URL in a new tab
   }
 
   closeNotesModal() {

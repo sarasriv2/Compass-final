@@ -1,6 +1,6 @@
 <div class="weekly-goals-comp" id="comp">
 
-    <!-- Heading Section -->
+
     <div class="heading">
         <div class="title-row">
             <p id="title">Weekly Goals</p>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <!-- Add New Goal -->
+   
     <div (click)="openModal()">
         <p id="add-text">+ Add a weekly goal</p>
     </div>
@@ -50,7 +50,7 @@
         (close)="closeModal()">
     </app-weekly-goals-modal>
 
-    
+
     <app-hashtag-notes 
         *ngIf="isNotesModalOpen" 
         [tag]="selectedTag"
