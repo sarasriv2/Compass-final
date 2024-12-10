@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { WeeklyGoalsModalComponent } from '../weekly-goals-modal/weekly-goals-modal.component';
+import { HashtagNotesComponent } from '../hashtag-notes/hashtag-notes.component';
 
 interface Goal {
   text: string;
@@ -13,13 +14,16 @@ interface Goal {
 @Component({
   selector: 'app-weekly-goals',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatCheckboxModule, WeeklyGoalsModalComponent],
+  imports: [CommonModule, FormsModule, MatCheckboxModule, WeeklyGoalsModalComponent, HashtagNotesComponent],
   templateUrl: './weekly-goals.component.html',
   styleUrls: ['./weekly-goals.component.scss']
 })
 
 export class WeeklyGoalsComponent {
-  isOpen: boolean = false;
+  isGoalModalOpen: boolean = false; 
+  isNotesModalOpen: boolean = false;
+  selectedTag: string | null = null; 
+
   weeklyGoals: Goal[] = [ 
     {text: "Finish Google cover letter", tag: '#apply-internships', isComplete: false },
     {text: "Apply to Microsoft", tag: '#apply-internships', isComplete: false },
@@ -27,11 +31,23 @@ export class WeeklyGoalsComponent {
   ];
 
   openModal() {
-    this.isOpen = true;
+    this.isGoalModalOpen = true;
   }
 
   closeModal() {
-    this.isOpen = false;
+    this.isGoalModalOpen = false;
+  }
+
+  openNotesModal(tag: string): void {
+    this.selectedTag = tag;
+    this.isNotesModalOpen = true;
+    const url = `/hashtag-notes?tag=${encodeURIComponent(tag)}`; // Pass the tag as a query parameter
+    window.open(url, '_blank'); // Open the URL in a new tab
+  }
+
+  closeNotesModal() {
+    this.selectedTag = null;
+    this.isNotesModalOpen = false;
   }
  
   getTagStyle(tag: string): string {
