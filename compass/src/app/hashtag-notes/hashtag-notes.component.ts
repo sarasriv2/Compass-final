@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WeeklyGoalsModalComponent } from "../weekly-goals-modal/weekly-goals-modal.component";
+import { GoalServiceService } from '../goal.service.service';
 @Component({
   selector: 'app-hashtag-notes',
   standalone: true,
@@ -24,6 +25,11 @@ export class HashtagNotesComponent {
   @Output() close = new EventEmitter<void>();
   isModalOpen = false;
 
+  constructor(private goalsService: GoalServiceService) {}
+
+  get getweeklyGoal() {
+    return this.goalsService.getGoals();
+  }
   
   openModal() {
     this.isModalOpen = true;
@@ -33,6 +39,8 @@ export class HashtagNotesComponent {
   closeModal() {
     this.isModalOpen = false;
   }
+
+
 
   
   addGoalFromModal(newGoal: { text: string; tag: string; isComplete: boolean }) {

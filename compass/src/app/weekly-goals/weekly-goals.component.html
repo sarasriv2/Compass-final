@@ -47,7 +47,8 @@
     <app-weekly-goals-modal 
         *ngIf="isGoalModalOpen" 
         [impGoals]="weeklyGoals" 
-        (close)="closeModal()">
+        (close)="closeModal()"
+        (saved)="addGoalFromModal($event)">
     </app-weekly-goals-modal>
 
 

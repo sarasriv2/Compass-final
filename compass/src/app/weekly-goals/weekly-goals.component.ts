@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { WeeklyGoalsModalComponent } from '../weekly-goals-modal/weekly-goals-modal.component';
 import { HashtagNotesComponent } from '../hashtag-notes/hashtag-notes.component';
-
+import { GoalServiceService } from '../goal.service.service';
 interface Goal {
   text: string;
   tag: string;
@@ -23,12 +23,17 @@ export class WeeklyGoalsComponent {
   isGoalModalOpen: boolean = false; 
   isNotesModalOpen: boolean = false;
   selectedTag: string | null = null; 
+  weeklyGoals: { text: string; tag: string; isComplete: boolean }[] = [];
 
-  weeklyGoals: Goal[] = [ 
-    {text: "Finish Google cover letter", tag: '#apply-internships', isComplete: false },
-    {text: "Apply to Microsoft", tag: '#apply-internships', isComplete: false },
-    {text: "Practice implementing data structures", tag: '#class-algorithms', isComplete: false }
-  ];
+
+  constructor(private goalsService: GoalServiceService) {
+    this.weeklyGoals = this.goalsService.getGoals();
+  }; 
+
+  handleGoalSave(newGoal: { text: string; tag: string; isComplete: boolean }) {
+    this.goalsService.addGoal(newGoal); // Save to service
+    this.weeklyGoals = this.goalsService.getGoals();
+  }
 
   openModal() {
     this.isGoalModalOpen = true;
@@ -65,6 +70,6 @@ export class WeeklyGoalsComponent {
   }
 
   addGoalFromModal(newGoal: Goal) {
-    this.weeklyGoals.push(newGoal);
+    this.handleGoalSave(newGoal); 
   }
 }
