@@ -1,42 +1,41 @@
 <div class="quarterly-goals-comp" id="comp">
-    <div class="heading">
+  <div class="heading">
       <div class="title-row">
-        <p id="title">Quarterly Goals</p>
-        <img src="edit.png" id="pencil" alt="Edit Goals" (click)="openModal()">
+          <p id="title">Quarterly Goals</p>
+          <img src="edit.png" id="pencil" alt="Edit Goals" (click)="openModal()">
       </div>
       <p id="quarter">Fall 2020</p>
-    </div>
-  
-    <div *ngFor="let goal of quarterlyGoals" class="goal">
+  </div>
+
+  <div *ngFor="let goal of impGoals" class="goal">
       <div class="goal-main">
-        <label class="check-box">
-          <input 
-            type="checkbox" 
-            [checked]="goal.isComplete" 
-            (change)="checkGoal(goal)" />
-          <span class="check-mark"></span>
-        </label>
-        <div class="goal-text" [ngClass]="{'crossed-out': goal.isComplete}">
-          <p class="text">{{ goal.text }}</p>
-          <div class="goal-bottom">
-            <p class="tag" [ngStyle]="{'color': getTagStyle(goal.tag)}">
-              {{ goal.tag || "None" }}
-            </p>
-            <p class="frac">{{ goal.frac }}</p>
+          <label class="check-box">
+              <input 
+                  type="checkbox" 
+                  [checked]="goal.isComplete" 
+                  (change)="checkGoal(goal)" />
+              <span class="check-mark"></span>
+          </label>
+          <div class="goal-text" [ngClass]="{'crossed-out': goal.isComplete}">
+              <p class="text">{{ goal.text }}</p>
+              <div class="goal-bottom">
+                  <p class="tag" [ngStyle]="{'color': getTagStyle(goal.tag)}">
+                      {{ goal.tag || "None" }}
+                  </p>
+              </div>
           </div>
-        </div>
       </div>
       <img src="line.png" id="line" alt="Separator">
-    </div>
-  
-    <div>
-      <p id="add-text" (click)="openModal()">+ Add a quarterly goal</p>
-    </div>
-  
-    <app-quarterly-goals-modal 
-      *ngIf="isOpen" 
-      [impGoals]="quarterlyGoals"
-      (close)="closeModal()">
-    </app-quarterly-goals-modal>
   </div>
-  
+
+  <div>
+      <p id="add-text" (click)="openModal()">+ Add a quarterly goal</p>
+  </div>
+
+  <app-quarterly-goals-modal 
+      *ngIf="isOpen" 
+      [impGoals]="impGoals"
+      (close)="closeModal()"
+      (saved)="onSave($event)">
+  </app-quarterly-goals-modal>
+</div>
