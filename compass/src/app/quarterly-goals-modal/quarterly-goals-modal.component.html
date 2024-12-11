@@ -42,11 +42,13 @@
                 </p>
             </div>
 
-            <mat-form-field class="drop-def">
-                <mat-label *ngIf="!isEditing" class="text" id="def-color" (click)="onClick()">{{ defTag }}</mat-label>
-                <mat-select [(ngModel)]="newGoalTag" contenteditable="true" (input)="updateNewGoalTag($event)" (keydown)="onEnter($event)">
-                    <mat-option id="tag" *ngFor="let tag of uniqueTags" [value]="tag">{{ tag }}</mat-option>
-                </mat-select>
+            <mat-form-field class="tag-input">
+                <input 
+                    matInput 
+                    [(ngModel)]="newGoalTag" 
+                    placeholder="Enter a tag (e.g., #new-goal)"
+                    (keydown)="onEnter($event)" 
+                    [ngStyle]="{'color': getTagStyle(newGoalTag || '')}" />
             </mat-form-field>
         </div>
 

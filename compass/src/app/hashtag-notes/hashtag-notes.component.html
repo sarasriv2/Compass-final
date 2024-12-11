@@ -20,14 +20,14 @@
     </div>
 
     <div class="goal-sidebar">
-      <h3>Apply to all internships</h3>
+      <div class="sidebar-title">Apply to ll internships</div>
       <ul>
         <li *ngFor="let goal of weeklyGoals">
           <input type="checkbox" [(ngModel)]="goal.isComplete" />
           {{ goal.text }}
         </li>
       </ul>
-      <button (click)="openModal()">+ Add a Weekly Goal</button>
+      <button (click)="openModal()">Add a Weekly Goal</button>
     </div>
     <app-weekly-goals-modal
       *ngIf="isModalOpen"
