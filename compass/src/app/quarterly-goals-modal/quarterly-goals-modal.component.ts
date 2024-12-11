@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 
-interface Goal {
+export interface Goal {
+  title: string;
   text: string;
   tag: string;
   isComplete: boolean;
@@ -20,17 +21,17 @@ interface Goal {
 export class QuarterlyGoalsModalComponent {
   newGoalText: string = '';
   newGoalTag: string = '';
-  defText: string = "Enter your goal...";
+  defText: string = "Enter your quarterly goal...";
   defTag: string = "quarterly goal...";
   isEditing: boolean = false;
 
   @Input() impGoals: Goal[] = [];
   @Output() close = new EventEmitter<void>();
-
+  @Output() saved = new EventEmitter<Goal>();
   modalGoals: Goal[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['impGoals'] && changes['impGoals'].currentValue) {
+    if (changes['quarterlyGoals'] && changes['quarterlyGoals'].currentValue) {
       this.modalGoals = structuredClone(this.impGoals);
     }
   }
@@ -40,13 +41,12 @@ export class QuarterlyGoalsModalComponent {
   }
 
   getTagStyle(tag: string): string {
-    switch (tag) {
-      case "#apply-internships":
-        return "#2DBDB1";
-      case "#class-algorithms":
-        return "#FFB987";
-      default:
-        return "purple";
+    if (tag === "#apply-internships") {
+      return "#2DBDB1";
+    } else if (tag === "#class-algorithms") {
+      return "#FFB987";
+    } else {
+      return "purple";
     }
   }
 
@@ -63,6 +63,7 @@ export class QuarterlyGoalsModalComponent {
   onEnter(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       const newGoal: Goal = {
+        title: 'New Goal', // Set a default title for new goals
         text: this.newGoalText,
         tag: this.newGoalTag,
         isComplete: false,
@@ -79,8 +80,9 @@ export class QuarterlyGoalsModalComponent {
 
   save() {
     for (let goal of this.modalGoals) {
-      if (!(this.impGoals.some(impGoal => impGoal.text === goal.text))) {
+      if (!(this.impGoals.some(impGoals => impGoals.text == goal.text))) {
         this.impGoals.push(goal);
+        this.saved.emit(goal);
       }
     }
 

@@ -20,7 +20,7 @@ export class LongTermGoalsComponent {
   isOpen: boolean = false;
 
   longtermGoals1Year: Goal[] = [
-    { text: "Secure SWE Internship", isComplete: false },
+    { text: "Secure SWE or UX Engineering Internship", isComplete: false },
   ];
 
   longtermGoals5Year: Goal[] = [
