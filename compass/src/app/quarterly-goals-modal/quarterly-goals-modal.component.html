@@ -1,48 +1,38 @@
 <div class="overlay">
     <div class="modal-comp">
-
         <div class="heading">
             <div class="title-row">
                 <p id="title">Quarterly Goals</p>
-
                 <div (click)="closeModal()">
                     <img src="x.png" id="esc" alt="close">
                 </div>
             </div>
-
-            <p id="quarter">Fall 2020</p>
+            <p id="quarter">Fall 2020</p> <!-- Adjust as necessary for the specific quarter -->
         </div>
 
-        <div *ngFor="let goal of modalGoals">
-            <div class="modal-goal">
-                <img src="drag.png" id="drag" alt="drag">
-
-                <div class="modal-goal-text">
-                    <p class="text">{{ goal.text }}</p>
-                </div>
-
-                <mat-form-field [ngClass]="{
-                    'drop1': goal.tag === '#class-algorithms',
-                    'drop2': goal.tag === '#apply-internships',
-                    'drop-new': goal.tag !== '#interview-technical' && goal.tag !== '#class-algorithms'}">
-                    <mat-select id="tag" [ngStyle]="{'color': getTagStyle(goal.tag)}" [(ngModel)]="goal.tag">
-                        <mat-option id="tag" *ngFor="let tag of uniqueTags" [value]="tag">{{ tag }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-
+        <div *ngFor="let goal of modalGoals" class="modal-goal">
+            <img src="drag.png" id="drag" alt="drag">
+            <div class="modal-goal-text">
+                <p class="text">{{ goal.title }}</p>
             </div>
+            <mat-form-field [ngClass]="{
+                'drop1': goal.tag === '#class-algorithms',
+                'drop2': goal.tag === '#apply-internships',
+                'drop-new': goal.tag !== '#interview-technical' && goal.tag !== '#class-algorithms'}">
+                <mat-select id="tag" [ngStyle]="{'color': getTagStyle(goal.tag)}" [(ngModel)]="goal.tag">
+                    <mat-option id="tag" *ngFor="let tag of uniqueTags" [value]="tag">{{ tag }}</mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
 
         <div class="modal-goal">
             <img src="drag.png" id="drag" alt="drag">
-
             <div class="modal-goal-text">
                 <p *ngIf="!isEditing" class="text" id="def-color" (click)="onClick()">{{ defText }}</p>
                 <p *ngIf="isEditing" contenteditable="true" class="text"
                    (input)="updateNewGoalText($event)" (keydown)="onEnter($event)">
                 </p>
             </div>
-
             <mat-form-field class="drop-def">
                 <mat-label *ngIf="!isEditing" class="text" id="def-color" (click)="onClick()">{{ defTag }}</mat-label>
                 <mat-select [(ngModel)]="newGoalTag" contenteditable="true" (input)="updateNewGoalTag($event)" (keydown)="onEnter($event)">
@@ -52,6 +42,5 @@
         </div>
 
         <button class="save-button" (click)="save()">Save</button>
-
     </div>
 </div>
