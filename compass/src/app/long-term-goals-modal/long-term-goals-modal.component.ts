@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -17,65 +17,52 @@ interface Goal {
   encapsulation: ViewEncapsulation.None,
 })
 export class LongTermGoalsModalComponent {
-  @Input() oneYearGoals: Goal[] = [];
-  @Input() fiveYearGoals: Goal[] = [];
+  @Input() impOneYear: Goal[] = [];
+  @Input() impFiveYear: Goal[] = [];
   @Output() close = new EventEmitter<void>();
   @Output() updateGoals = new EventEmitter<{ oneYear: Goal[]; fiveYear: Goal[] }>();
+  
+  oneYearGoals: Goal[] = [];
+  fiveYearGoals: Goal[] = [];
+  editingIndex: { type: 'oneYear' | 'fiveYear'; index: number | null } = { type: 'oneYear', index: null };
 
-  newGoal: string = '';
-  goalType: 'oneYear' | 'fiveYear' = 'oneYear';
-  isEditing: boolean = false;
-  defText: string = 'Click here to add a new goal...';
-  modalGoals: Goal[] = [];
-
-  ngOnInit() {
-    this.updateModalGoals(); 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['impOneYear'] && changes['impOneYear'].currentValue) {
+      this.oneYearGoals = structuredClone(this.impOneYear);
+    }
+    if (changes['impFiveYear'] && changes['impFiveYear'].currentValue) {
+      this.fiveYearGoals = structuredClone(this.impFiveYear);
+    }
   }
 
   closeModal() {
     this.close.emit();
   }
 
-  addGoal() {
-    if (this.newGoal.trim()) {
-      if (this.goalType === 'oneYear') {
-        this.oneYearGoals.push({ text: this.newGoal, isComplete: false });
-      } else {
-        this.fiveYearGoals.push({ text: this.newGoal, isComplete: false });
+  editGoal(type: 'oneYear' | 'fiveYear', index: number) {
+    this.editingIndex = { type, index };
+  }
+
+  updateGoalText(event: Event) {
+    const input = event.target as HTMLElement;
+    const newValue = input.textContent?.trim() || '';
+    const { type, index } = this.editingIndex;
+
+    if (index !== null) {
+      if (type === 'oneYear') {
+        this.oneYearGoals[index].text = newValue;
+      } else if (type === 'fiveYear') {
+        this.fiveYearGoals[index].text = newValue;
       }
-      this.updateModalGoals(); 
-      this.newGoal = '';
     }
   }
 
   save() {
     this.updateGoals.emit({
       oneYear: this.oneYearGoals,
-      fiveYear: this.fiveYearGoals
+      fiveYear: this.fiveYearGoals,
     });
     this.close.emit();
   }
-
-  updateNewGoalText(event: Event) {
-    const input = event.target as HTMLInputElement;
-    this.newGoal = input.value;
-  }
-
-  onEnter(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.addGoal();
-    }
-  }
-
-  onClick() {
-    this.isEditing = true;
-  }
-
-  private updateModalGoals() {
-    if (this.goalType === 'oneYear') {
-      this.modalGoals = this.oneYearGoals.slice(0, 2); 
-    } else {
-      this.modalGoals = this.fiveYearGoals.slice(0, 2); 
-    }
-  }
 }
+
