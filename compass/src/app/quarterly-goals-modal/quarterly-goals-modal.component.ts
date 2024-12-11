@@ -61,10 +61,10 @@ export class QuarterlyGoalsModalComponent {
   }
 
   onEnter(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && this.newGoalText.trim()) {
       const newGoal: Goal = {
-        text: this.newGoalText,
-        tag: this.newGoalTag,
+        text: this.newGoalText.trim(),
+        tag: this.newGoalTag.trim() || 'None',
         isComplete: false,
       };
 
@@ -78,14 +78,16 @@ export class QuarterlyGoalsModalComponent {
   }
 
   save() {
-    for (let goal of this.modalGoals) {
-      if (!(this.impGoals.some(impGoal => impGoal.text === goal.text))) {
-        this.impGoals.push(goal);
-      }
-    }
+    this.impGoals.length = 0; 
+    this.modalGoals.forEach(goal => {
+        this.impGoals.push({ ...goal }); 
+    });
 
-    this.isEditing = false;
-    this.closeModal();
+   
+    this.newGoalText = '';
+    this.newGoalTag = '';
+
+    this.closeModal(); 
   }
 
   onClick() {

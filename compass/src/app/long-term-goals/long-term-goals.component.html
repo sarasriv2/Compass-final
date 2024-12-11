@@ -1,7 +1,7 @@
 <div class="long-term-goals-comp" id="comp">
   <div class="heading">
     <div class="title-row">
-      <p id="title">Long Term Goals</p>
+      <p id="title" (click)="openNotesModal()">Long Term Goals</p>
       <div (click)="openModal()">
         <img src="edit.png" id="pencil" alt="edit">
       </div>
@@ -44,4 +44,8 @@
   (updateGoals)="updateGoals($event)">
 </app-long-term-goals-modal>
 
+<app-long-term-notes
+        *ngIf="isNotesModalOpen" 
+        (close)="closeNotesModal()">
+  </app-long-term-notes>
 </div>

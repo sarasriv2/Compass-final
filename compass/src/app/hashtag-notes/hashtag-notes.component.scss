@@ -11,42 +11,15 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: #eaf8f8;
+    background-color: #F2FFFE;
     z-index: 500;
 }
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem; 
-    background-color: #FFFF ;
-    border-bottom: 1px solid #FFFF; 
-
-    .back-button img, 
-    .logout img {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    }
-    .logout{
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-  
-        span {
-          color: #2DBDB1;
-          cursor: pointer;
-          font-size: 1rem;
-        }
-      }
-    }
 
 .main-content{
     display: flex; 
     flex: 1; 
     padding: 2rem; 
-    background-color: #9cf1f440;
+    background-color: #F2FFFE;
 
     .notes-section{
         flex:2; 
@@ -139,7 +112,6 @@
         padding: 0.5rem 0;
         background: none;
         border: none;
-        color: #2dbdb1;
         font-size: 16px;
         font-family: 'Oxygen', sans-serif;
         cursor: pointer;

@@ -1,0 +1,185 @@
+.container{
+    display: flex; 
+    flex-direction: column; 
+    height: 70px; 
+    width: 1440px; 
+    font-family: "Oxygen", sans-serif; 
+    bottom: 10px; 
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #F2FFFE;
+    z-index: 500;
+}
+
+.main-content{
+    display: flex; 
+    flex: 1; 
+    padding: 2rem; 
+    background-color: #F2FFFE;
+    .notes-section{
+        flex:2; 
+        margin-right: 2rem; 
+        h1{
+            width: 973px;
+            height: 58px; 
+            top: 148px; 
+            left: 68px; 
+            font-family: "Oxygen", sans-serif;
+            font-weight: 400; 
+            font-size: 45px; 
+            line-height: 60.01px;
+            color: #5A5A5A; 
+        }
+        h2{
+            width: 615px; 
+            height: 45px; 
+            top: 212px; 
+            left: 67.5px; 
+            font-family: "Oxygen", sans-serif;
+            font-weight: 300;
+            font-size: 35px; 
+            line-height: 47px;
+            color: #5A5A5A; 
+        }
+        .hashtag{
+            color: #2DBDB1; 
+            font-family: "Oxygen";
+            font-weight: 400; 
+            font-size: 35;
+            line-height: 47px;
+        }
+    }
+    .notes{
+        display: flex; 
+        flex-direction: column; 
+        width: 850px; 
+        height: 581px; 
+        top: 293px; 
+        left: 57px; 
+        border-top: 3.75px;
+        border-right: 3.75px;
+        border-bottom: 1.25px;
+        border-left: 3.75px;
+        background-color: #FFFF; 
+        border-radius: 12.5px;
+        border-width: 3.75px 3.75px 1.25px 3.75px;
+        border-style: solid;
+        border-color: #E1FBF9;
+        color: #5A5A5A;
+        
+        
+        .note{
+            background: #FFFF;
+            padding: 1rem;
+        }
+
+        h3 {
+            font-size: 16px; 
+            font-family: "Oxygen";
+            font-weight: bolder; 
+            padding-top: 20px;
+        }  
+        
+        p {
+            font-size: 16px; 
+            font-family: 'Oxygen'; 
+            font-weight: lighter;
+            padding-top: 0px ;
+            border: #E1FBF9;
+          }
+    
+    }
+
+    .goal-sidebar {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: auto;
+        margin-top: 1rem; 
+        padding: 1rem; 
+        background-color: none; /* Subtle background color for neatness */
+        border-left: 1px solid #cce7e7; /* Thin border for separation */
+        height: 100%; /* Ensures full-height alignment */
+      
+        button {
+          margin-top: 1rem; /* Space above the button */
+          padding: 0.5rem 0;
+          background: none;
+          border: none;
+          color: #2dbdb1;
+          font-size: 16px;
+          font-family: 'Oxygen', sans-serif;
+          cursor: pointer;
+          text-align: left;
+      
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      
+        ul {
+          list-style: none; /* Remove default bullets */
+          padding: 0;
+          margin: 0;
+          width: 100%;
+      
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem; /* Consistent spacing between items */
+            font-size: 15px;
+            font-family: 'Oxygen', sans-serif;
+            color: #5a5a5a;
+      
+            input[type="checkbox"] {
+              margin-right: 10px; /* Space between checkbox and text */
+              width: 18px;
+              height: 18px;
+              border-radius: 4px;
+              border: 1px solid #cce7e7;
+              cursor: pointer;
+      
+              &:checked {
+                background-color: #2dbdb1;
+                border-color: #2dbdb1;
+              }
+            }
+      
+            span {
+              text-decoration: none;
+      
+              &.checked {
+                text-decoration: line-through; /* Strike-through for completed goals */
+                color: #9b9b9b; /* Lighter color for completed text */
+              }
+            }
+          }
+        }
+      }
+        
+            button {
+              background-color: #E1FBF9;
+              color: #5A5A5A;
+              font-family: 'Oxygen'; 
+              font-size: 17px;
+              padding: 0.5rem 0;
+              margin-top: -10px;
+              border: none;
+              padding-bottom: 10px;
+      
+              cursor: pointer;
+              
+        
+              &:hover {
+                background-color: #28a89e;
+              }
+      
+        
+              transition: background-color 0.3s ease;
+            }
+}

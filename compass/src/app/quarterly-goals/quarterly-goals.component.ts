@@ -32,6 +32,7 @@ export class QuarterlyGoalsComponent {
 
   closeModal() {
     this.isOpen = false;
+    this.quarterlyGoals = [...this.quarterlyGoals];
   }
 
   getTagStyle(tag: string): string {
