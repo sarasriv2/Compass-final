@@ -2,7 +2,12 @@
 
   <div class="main-content">
     <div class="notes-section">
-      <h1>Notes and resources</h1>
+      <div class="title-row">
+        <h1>Notes and resources</h1>
+        <div (click)="closeModal()">
+        <img src="x.png" id="esc" alt="close">
+        </div>
+      </div>
       <h2>For <span class="hashtag">{{ tag }}</span></h2>
 
       <div class="notes">

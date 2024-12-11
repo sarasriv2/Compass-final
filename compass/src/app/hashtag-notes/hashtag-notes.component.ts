@@ -38,6 +38,7 @@ export class HashtagNotesComponent {
   
   closeModal() {
     this.isModalOpen = false;
+    this.close.emit();
   }
 
   

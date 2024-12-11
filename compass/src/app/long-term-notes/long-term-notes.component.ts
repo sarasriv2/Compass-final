@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-long-term-notes',
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './long-term-notes.component.scss'
 })
 export class LongTermNotesComponent {
+  @Output() close = new EventEmitter<void>();
 
+  closeModal() {
+    this.close.emit();
+  }
 }
