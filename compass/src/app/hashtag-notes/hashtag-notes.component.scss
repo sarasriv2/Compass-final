@@ -221,4 +221,33 @@
           }
         }
       }
+
+      @media (max-width: 768px) {
+        .long-term-goals-comp {
+          width: 95%;
+          padding: 10px;
+        }
+      
+        .heading {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      
+        .goal {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      
+        .goal-text {
+          margin-bottom: 5px;
+        }
+      
+        .pencil {
+          width: 18px;
+        }
+      
+        .add-text {
+          font-size: 14px;
+        }
+      }
       
