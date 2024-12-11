@@ -130,12 +130,10 @@
       margin-left: auto;
       margin-top: 1rem; 
       padding: 1rem; 
-      background-color: none; /* Subtle background color for neatness */
-      border-left: 1px solid #cce7e7; /* Thin border for separation */
-      height: 100%; /* Ensures full-height alignment */
-    
+      background-color: none; 
+      border-left: 1px solid #cce7e7;
       button {
-        margin-top: 1rem; /* Space above the button */
+        margin-top: 1rem; 
         padding: 0.5rem 0;
         background: none;
         border: none;
@@ -151,7 +149,7 @@
       }
     
       ul {
-        list-style: none; /* Remove default bullets */
+        list-style: none;
         padding: 0;
         margin: 0;
         width: 100%;
@@ -159,13 +157,13 @@
         li {
           display: flex;
           align-items: center;
-          margin-bottom: 0.5rem; /* Consistent spacing between items */
+          margin-bottom: 0.5rem; 
           font-size: 15px;
           font-family: 'Oxygen', sans-serif;
           color: #5a5a5a;
     
           input[type="checkbox"] {
-            margin-right: 10px; /* Space between checkbox and text */
+            margin-right: 10px; 
             width: 18px;
             height: 18px;
             border-radius: 4px;
@@ -182,8 +180,8 @@
             text-decoration: none;
     
             &.checked {
-              text-decoration: line-through; /* Strike-through for completed goals */
-              color: #9b9b9b; /* Lighter color for completed text */
+              text-decoration: line-through; 
+              color: #9b9b9b; 
             }
           }
         }
@@ -210,6 +208,4 @@
       
             transition: background-color 0.3s ease;
           }
-        }
-      }
       
