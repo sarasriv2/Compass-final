@@ -39,11 +39,6 @@
   align-items: center;
 }
 
-.goals{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
 
 .modal-goal{
   display: flex;
@@ -52,80 +47,28 @@
   font-weight: 400px;
   font-size: 17px;
   line-height: 24.11px;
+  margin-bottom: 50px;
 }
 
 .modal-goal-text{
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 700px;
   border-bottom: 1px solid #4B5853;
   color: #4B5853;
 }
 
 .text{
   font-weight: 300;
-  font-size: 19.1px;
-  line-height: 24.11px;
+  font-size: 20px;
+  line-height: 25.25px;
 }
 
-.drop1 .mdc-text-field--filled {
-  background-color: #fff !important;
-  width: 200px;
-  height: 40px;
-  padding-left: 3px;
-  border-bottom: 1px;
-  border-bottom: 1px solid #2DBDB1;
-  margin-top: 20px;
-  margin-left: 20px;
-
-  .mdc-line-ripple { 
-      display: none;
-  }
-}
-
-.drop2 .mdc-text-field--filled {
-  background-color: #fff !important;
-  width: 200px;
-  height: 40px;
-  padding-left: 3px;
-  border-bottom: 1px;
-  border-bottom: 1px solid #FFB987;
-  margin-top: 20px;
-  margin-left: 20px;
-
-  .mdc-line-ripple {
-      display: none;
-  }
-}
-
-.drop-new .mdc-text-field--filled {
-  background-color: #fff !important;
-  width: 200px;
-  height: 40px;
-  padding-left: 3px;
-  border-bottom: 1px;
-  border-bottom: 1px solid purple;
-  margin-top: 20px;
-  margin-left: 20px;
-  
-  .mdc-line-ripple {
-      display: none;
-  }
-}
-
-.drop-def .mdc-text-field--filled {
-  background-color: #fff !important;
-  width: 200px;
-  height: 40px;
-  padding-left: 3px;
-  border-bottom: 1px solid ;
-  margin-top: 15px;
-  padding-bottom: 45px;
-  margin-left: 20px;
-
-  .mdc-line-ripple {
-      display: none;
-  }
+.year {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 31.57px;
+  color: #4B5853;
 }
 
 .save-button {

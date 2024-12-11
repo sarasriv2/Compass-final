@@ -35,15 +35,11 @@
       <img src="line.png" id="line" alt="line">
     </div>
   </div>
-
-  <div (click)="openModal()">
-    <p id="add-text">+ Add a long term goal</p>
-  </div>
-
+  
   <app-long-term-goals-modal 
   *ngIf="isOpen" 
-  [oneYearGoals]="longtermGoals1Year" 
-  [fiveYearGoals]="longtermGoals5Year" 
+  [impOneYear]="longtermGoals1Year" 
+  [impFiveYear]="longtermGoals5Year" 
   (close)="closeModal()"
   (updateGoals)="updateGoals($event)">
 </app-long-term-goals-modal>

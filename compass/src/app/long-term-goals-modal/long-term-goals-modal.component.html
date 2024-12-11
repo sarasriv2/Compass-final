@@ -14,23 +14,25 @@
             <p id="message"><strong>Plan your future</strong></p>
         </div>
 
-        <div *ngFor="let goal of modalGoals">
+        <p class="year">1 year</p>
+        <div *ngFor="let goal of oneYearGoals; let i = index">
             <div class="modal-goal">
-
                 <div class="modal-goal-text">
-                    <p class="text">{{ goal.text }}</p>
+                    <p *ngIf="editingIndex.type != 'oneYear' || editingIndex.index != i" class="text" (click)="editGoal('oneYear', i)">{{ goal.text }}</p>
+                    <p *ngIf="editingIndex.type == 'oneYear' && editingIndex.index == i" contenteditable="true" class="text"
+                    (input)="updateGoalText($event)"> {{ goal.text }}
                 </div>
             </div>
         </div>
 
-        <div class="modal-goal">
-             <div class="modal-goal-text">
-                <p *ngIf="!isEditing" class="text" id="def-color" (click)="onClick()">{{ defText }}</p>
-                <p *ngIf="isEditing" contenteditable="true" class="text"
-                (input)="updateNewGoalText($event)" (keydown)="onEnter($event)"> 
-                </p>
+        <p class="year">5 year</p>
+        <div *ngFor="let goal of fiveYearGoals; let i = index">
+            <div class="modal-goal">
+                <div class="modal-goal-text">
+                    <p *ngIf="editingIndex.type != 'fiveYear' || editingIndex.index != i" class="text" (click)="editGoal('fiveYear', i)">{{ goal.text }}</p>
+                    <p *ngIf="editingIndex.type == 'fiveYear' && editingIndex.index == i" contenteditable="true" class="text" (input)="updateGoalText($event)">{{ goal.text }}</p>
+                </div>
             </div>
-            
         </div>
 
         <button class="save-button" (click)="save()">Save</button>
