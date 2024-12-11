@@ -40,8 +40,6 @@ export class HashtagNotesComponent {
     this.isModalOpen = false;
   }
 
-
-
   
   addGoalFromModal(newGoal: { text: string; tag: string; isComplete: boolean }) {
     this.weeklyGoals.push(newGoal);

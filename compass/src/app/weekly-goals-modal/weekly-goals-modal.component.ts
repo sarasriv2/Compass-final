@@ -76,7 +76,7 @@ export class WeeklyGoalsModalComponent {
       this.newGoalText = '';
       this.newGoalTag = '';
 
-      this.isEditing = false;
+      this.isEditing = true;
       
     }
   }
