@@ -210,4 +210,61 @@
       
             transition: background-color 0.3s ease;
           }
-      
+          :host {
+            display: block;
+            margin: 0 auto;
+            padding: 16px;
+            box-sizing: border-box;
+            max-width: 1200px;
+          }
+          
+          .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+          }
+          
+          .item {
+            flex: 1 1 calc(33.33% - 16px); 
+          }
+          
+          @media (max-width: 768px) {
+            .item {
+              flex: 1 1 calc(50% - 16px); 
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .item {
+              flex: 1 1 100%; 
+            }
+          }
+          
+          h1, h2, h3 {
+            font-size: 1.5em;
+          }
+          
+          @media (max-width: 768px) {
+            h1, h2, h3 {
+              font-size: 1.2em;
+            }
+          }
+          
+          button {
+            width: 100%;
+            max-width: 300px;
+            font-size: 1em;
+            padding: 12px 16px;
+          }
+          
+          @media (max-width: 768px) {
+            button {
+              font-size: 0.9em;
+              padding: 10px 14px;
+            }
+          }
+          
+          img {
+            max-width: 100%;
+            height: auto;
+          }
